@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class HomeLogin extends BasePage{
-    private WebDriver driver;
-
     public HomeLogin(WebDriver driver) {
         super(driver);
     }
@@ -15,7 +13,15 @@ public class HomeLogin extends BasePage{
     private By inputPasswordLocator = By.id("password");
     private By btnLoginLocator = By.id("login-button");
 
-    public WebElement inputUsername = this.driver.findElement(inputUsernameLocator);
-    public WebElement inputPassword = this.driver.findElement(inputPasswordLocator);
-    public WebElement btnLogin = this.driver.findElement(btnLoginLocator);
+
+    public WebElement inputUsername = driver.findElement(inputUsernameLocator);
+    public WebElement inputPassword = driver.findElement(inputPasswordLocator);
+    public WebElement btnLogin = driver.findElement(btnLoginLocator);
+
+
+    public void login(String username, String password){
+        inputUsername.sendKeys("standard_user");
+        inputPassword.sendKeys("secret_sauce");
+        btnLogin.click();
+    }
 }

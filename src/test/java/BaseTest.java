@@ -17,6 +17,7 @@ public class BaseTest {
     public void navigateToUrl(String url){
         this.driver.get(url);
     }
+    
     public void closeDriver (){
         if(this.driver!=null) this.driver.close();
     }

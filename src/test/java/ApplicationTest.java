@@ -20,18 +20,19 @@ public class ApplicationTest {
         //driver.close();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         //WebElement inputUsername = driver.findElement(By.id("user-name"));
-        WebElement inputUsername = driver.findElement(By.xpath("//div[@class='login-box']//input[@id='user-name']"));
+        WebElement inputUsername = driver.findElement(By.id("user-name"));
         inputUsername.clear();
         inputUsername.sendKeys("standard_user");
 
-        WebElement inputPassword = driver.findElement(By.xpath("//div[@class='login-box']//input[@id='password']"));
+        WebElement inputPassword = driver.findElement(By.id("password"));
         inputPassword.clear();
         inputPassword.sendKeys("secret_sauce");
 
-        WebElement btnLogin = driver.findElement(By.xpath("//div[@class='login-box']//input[@id='login-button']"));
+        WebElement btnLogin = driver.findElement(By.id("login-button"));
         btnLogin.click();
 
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.saucedemo.com/inventory.html");
+        Thread.sleep(2000);
         driver.close();
     }
 }
